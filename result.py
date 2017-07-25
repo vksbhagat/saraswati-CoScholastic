@@ -1,3 +1,13 @@
+#!/bin/bash
+#
+#Encoding Unicode (UTF-8)
+#
+#Author
+#   Vivek Bhagat
+#GNU General Public Licence v3.0
+#Copyright (c) 2017 Vivek Bhagat
+#
+
 from docx import Document
 from docx.shared import Inches, Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
