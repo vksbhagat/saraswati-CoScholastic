@@ -50,7 +50,7 @@ for row in ws.iter_rows(min_row=1, max_col=1, max_row=46):
     #valuerow = []
     for cell in row:
         lstindicator.append(cell.value)
-
+#print lstindicator
 
 #Adding a picture school letter head
 #result.add_picture('name.png', width=Inches(1.25))
@@ -76,6 +76,8 @@ for i in range(1, 99):
     ##Heading
     heading = result.add_paragraph()
     heading.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    #font = run.font
+    #font.size = Pt(12)
     heading.add_run('Co-Scholastic Grade Certificate Class X 2017').bold = True
     #head1=result.add_heading('Co-Scholastic Grade Certificate Class X 2017',3).paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
@@ -108,10 +110,10 @@ for i in range(1, 99):
     info = " ".join(srecord[0].split())
     para1.add_run(info.upper())
     para1.add_run("\nMother's name: ")
-    info = " ".join(srecord[5].split())
+    info = " ".join(srecord[4].split())
     para1.add_run(info.upper())
     para1.add_run("\nFather's name: ")
-    info = " ".join(srecord[4].split())
+    info = " ".join(srecord[5].split())
     para1.add_run(info.upper())
 
 
@@ -136,31 +138,31 @@ for i in range(1, 99):
     #Thinking Skills data
     table2a.cell(1,3).text = str(srecord[7]).split()
     if srecord[7] == 5:
-        drecord = [1,2]
+        drecord = [0,1]
         table2a.cell(1,2).text = 'A'
         table2a.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [3,4]
+        drecord = [2,3]
         table2a.cell(1,2).text = 'B'
         table2a.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     #Social Skills data
     table2a.cell(2,3).text = str(srecord[8]).split()
     if srecord[8] == 5:
-        drecord = [5,6]
+        drecord = [4,5]
         table2a.cell(2,2).text = 'A'
         table2a.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [7,8]
+        drecord = [6,7]
         table2a.cell(2,2).text = 'B'
         table2a.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     #Emotional Skills data
     table2a.cell(3,3).text = str(srecord[9]).split()
     if srecord[9] == 5:
-        drecord = [9,10]
+        drecord = [8,9]
         table2a.cell(3,2).text = 'A'
         table2a.cell(3,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [11]
+        drecord = [10]
         table2a.cell(3,2).text = 'B'
         table2a.cell(3,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
 
@@ -184,11 +186,11 @@ for i in range(1, 99):
     #Work Education data
     table2b.cell(1,3).text = str(srecord[10]).split()
     if srecord[10] == 5:
-        drecord = [12,13]
+        drecord = [11,12]
         table2b.cell(1,2).text = 'A'
         table2b.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [14,15]
+        drecord = [13,14]
         table2b.cell(1,2).text = 'B'
         table2b.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
 
@@ -211,11 +213,11 @@ for i in range(1, 99):
     #Visual and Performing Arts data
     table2c.cell(1,3).text = str(srecord[11]).split()
     if srecord[11] == 5:
-        drecord = [16,17]
+        drecord = [15,16]
         table2c.cell(1,2).text = 'A'
         table2c.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [18]
+        drecord = [17]
         table2c.cell(1,2).text = 'B'
         table2c.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
 
@@ -242,41 +244,41 @@ for i in range(1, 99):
     #Teachers data
     table2d.cell(1,3).text = str(srecord[12]).split()
     if srecord[12] == 5:
-        drecord = [19,20]
+        drecord = [18,19]
         table2d.cell(1,2).text = 'A'
         table2d.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [21]
+        drecord = [20]
         table2d.cell(1,2).text = 'B'
         table2d.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     #Schoolmates data
     table2d.cell(2,3).text = str(srecord[13]).split()
     if srecord[13] == 5:
-        drecord = [22,23]
+        drecord = [21,22]
         table2d.cell(2,2).text = 'A'
         table2d.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [24]
+        drecord = [23]
         table2d.cell(2,2).text = 'B'
         table2d.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     #School Programmes & Environment data
     table2d.cell(3,3).text = str(srecord[14]).split()
     if srecord[14] == 5:
-        drecord = [25,26]
+        drecord = [24,25]
         table2d.cell(3,2).text = 'A'
         table2d.cell(3,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [27]
+        drecord = [26]
         table2d.cell(3,2).text = 'B'
         table2d.cell(3,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     #Value Systems
     table2d.cell(4,3).text = str(srecord[15]).split()
     if srecord[15] == 5:
-        drecord = [28,29]
+        drecord = [27,28]
         table2d.cell(4,2).text = 'A'
         table2d.cell(4,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [30]
+        drecord = [29]
         table2d.cell(4,2).text = 'B'
         table2d.cell(4,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
 
@@ -301,21 +303,21 @@ for i in range(1, 99):
     #Literacy and Creative Skills data
     table3a.cell(1,3).text = str(srecord[16]).split()
     if srecord[16] == 5:
-        drecord = [31,32]
+        drecord = [30,31]
         table3a.cell(1,2).text = 'A'
         table3a.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [33,34]
+        drecord = [32,33]
         table3a.cell(1,2).text = 'B'
         table3a.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     #Scientific Skills data
     table3a.cell(2,3).text = str(srecord[17]).split()
     if srecord[17] == 5:
-        drecord = [35,36]
+        drecord = [34,35]
         table3a.cell(2,2).text = 'A'
         table3a.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [37]
+        drecord = [36]
         table3a.cell(2,2).text = 'B'
         table3a.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
 
@@ -340,21 +342,21 @@ for i in range(1, 99):
     #Sports data
     table3b.cell(1,3).text = str(srecord[18]).split()
     if srecord[18] == 5:
-        drecord = [38,39,40]
+        drecord = [37,38,39]
         table3b.cell(1,2).text = 'A'
         table3b.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [41,42]
+        drecord = [40,41]
         table3b.cell(1,2).text = 'B'
         table3b.cell(1,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     #Gardening and Shramdaan data
     table3b.cell(2,3).text = str(srecord[19]).split()
     if srecord[19] == 5:
-        drecord = [43,44]
+        drecord = [42,43]
         table3b.cell(2,2).text = 'A'
         table3b.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
     else:
-        drecord = [45,46]
+        drecord = [44,45]
         table3b.cell(2,2).text = 'B'
         table3b.cell(2,1).text = str(" ".join(lstindicator[random.choice(drecord)].split()))
 
