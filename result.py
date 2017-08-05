@@ -22,7 +22,7 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 #from docx.enum.style import WD_STYLE_TYPE
 from openpyxl import load_workbook
-from docx.oxml.shared import OxmlElement, qn
+#from docx.oxml.shared import OxmlElement, qn
 import random
 
 ##Creating an object for Document()
