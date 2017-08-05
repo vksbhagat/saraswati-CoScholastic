@@ -22,6 +22,7 @@ from docx.shared import Inches, Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 #from docx.enum.style import WD_STYLE_TYPE
 from openpyxl import load_workbook
+from docx.oxml.shared import OxmlElement, qn
 import random
 
 ##Creating an object for Document()
@@ -76,8 +77,6 @@ for i in range(1, 99):
     ##Heading
     heading = result.add_paragraph()
     heading.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    #font = run.font
-    #font.size = Pt(12)
     heading.add_run('Co-Scholastic Grade Certificate Class X 2017').bold = True
     #head1=result.add_heading('Co-Scholastic Grade Certificate Class X 2017',3).paragraph_format.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
@@ -91,7 +90,6 @@ for i in range(1, 99):
     font = style.font
     font.name = 'Calibri'
     font.size = Pt(10)
-    #font.color.rgb = RGBColor(0, 0, 0)
 
 
     ##Personal Info (Body)
