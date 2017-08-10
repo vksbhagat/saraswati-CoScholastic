@@ -24,6 +24,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_LINE_SPACING
 from openpyxl import load_workbook
 import random
 
+
 ##Creating an object for Document()
 result = Document()
 
@@ -34,31 +35,42 @@ wb = load_workbook('co-scholistic grade.xlsx')
 ws = wb['Sheet1']
 #Loading data to a 2 dimensional list
 lstgrade = []
-for row in ws.iter_rows(min_row=2, max_col=21, max_row=100):
+for row in ws.iter_rows(min_row=2, max_col=22, max_row=100):
     valuerow = []
     for cell in row:
         valuerow.append(cell.value)
     lstgrade.append(valuerow)
 
 
-##Loading excel document to read data discriptive indicator
-wb = load_workbook('discriptive indicator.xlsx')
+##Loading excel document to read data discriptive indicator(M)
+wb = load_workbook('discriptive indicator (M).xlsx')
 ws = wb['Sheet1']
 #Loading data to a 2 dimensional list
-lstindicator = []
+lstindicatorM = []
 for row in ws.iter_rows(min_row=1, max_col=1, max_row=46):
     #valuerow = []
     for cell in row:
-        lstindicator.append(cell.value)
-#print lstindicator
+        lstindicatorM.append(cell.value)
 
-#Adding a picture school letter head
+
+##Loading excel document to read data discriptive indicator (F)
+wb = load_workbook('discriptive indicator (F).xlsx')
+ws = wb['Sheet1']
+#Loading data to a 2 dimensional list
+lstindicatorF = []
+for row in ws.iter_rows(min_row=1, max_col=1, max_row=46):
+    #valuerow = []
+    for cell in row:
+        lstindicatorF.append(cell.value)
+
+
+##Adding a picture school letter head
 #result.add_picture('name.png', width=Inches(1.25))
 
 
 ##Modifying the page layout
 sections = result.sections[0]
-sections.top_margin = Inches(2)
+sections.top_margin = Inches(1.5)
 sections.bottom_margin = Inches(0)
 sections.left_margin = Inches(0.5)
 sections.right_margin = Inches(0.5)
@@ -71,7 +83,13 @@ for i in range(1, 99):
 
     ##Storing record for each student iteration by iteration
     srecord = lstgrade[i]
+    lstindicator = []
 
+    ##Checking weather the student is male or female
+    if srecord[21] == 'M':
+        lstindicator = lstindicatorM
+    else:
+        lstindicator = lstindicatorF
 
     ##Heading
     heading = result.add_paragraph()
@@ -93,7 +111,7 @@ for i in range(1, 99):
 
     ##Personal Info (Body)
     para1 = result.add_paragraph('\n')
-    para1.add_run('Name of Student: ')
+    para1.add_run('\nName of Student: ')
     #Cleaning the data for extra spaces and make all the text upper case
     info = " ".join(srecord[3].split())
     para1.add_run(info.upper())
